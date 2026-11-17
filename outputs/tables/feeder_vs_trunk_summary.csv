@@ -1,0 +1,3 @@
+route_class,ranked_segments,median_peak_speed_kmh,median_peak_cv,p90_peak_cv,median_slowdown_ratio
+feeder,892,21.65,0.0,0.0,1.0
+trunk,4455,21.52,0.0,0.0052,1.0

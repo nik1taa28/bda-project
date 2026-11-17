@@ -1,0 +1,13 @@
+{
+  "routes_checked": [
+    "01",
+    "28",
+    "39",
+    "66",
+    "111",
+    "CT2"
+  ],
+  "events_compared": 14458,
+  "max_abs_diff_mean_std_on_time": 6.821210263296962e-13,
+  "passed": true
+}

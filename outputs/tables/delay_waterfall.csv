@@ -1,0 +1,8 @@
+stage,rows_in,rows_out,pct_retained,reason,kind
+1. raw arrival/departure rows,9108352,9108352,100.0,rows read from the monthly CSVs,start
+2. drop null service_date/route/trip/order,9108352,9108169,99.998,rows cannot be placed in a trip,quality
+"3. drop duplicate (date, trip, timepoint order)",9108169,9108137,99.9996,duplicate events,quality
+4. drop rows without a valid scheduled time,9108137,9108137,100.0,scheduled time missing/unparseable,quality
+5. drop rows without an actual time,9108137,8425094,92.5007,no actual time recorded (data-collection gaps),quality
+6. drop |delay| > 7200 s,8425094,8424946,99.9982,implausible delay (likely data error),quality
+7. keep schedule-standard trips,8424946,4606471,54.6766,scope: delay is only valid for 'Schedule' trips; 'Headway' trips are judged on headways,scope

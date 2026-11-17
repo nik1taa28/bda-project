@@ -1,0 +1,15 @@
+experiment,cores,variant,latency_median_s,min_s,max_s,throughput_rows_per_s,speedup,efficiency,oversubscribed,shuffle_write_bytes
+scaling_real_data,1,broadcast,51.976,51.398,52.858,38466.0,1.0,1.0,False,
+scaling_real_data,2,broadcast,39.158,37.952,40.943,51057.0,1.327,0.664,False,
+scaling_real_data,4,broadcast,26.536,24.351,30.985,75342.0,1.959,0.49,False,
+join_comparison,4,broadcast,1.854,1.507,1.98,,,,,2633151.0
+join_comparison,4,shuffle,2.728,2.59,2.883,,,,,219268237.0
+"synthetic_scaleup (synthetic replication, not real data)",1,x1,42.708,,,46813.0,1.0,1.0,,
+"synthetic_scaleup (synthetic replication, not real data)",4,x1,34.377,,,58158.0,1.242,0.311,,
+"synthetic_scaleup (synthetic replication, not real data)",1,x5,208.323,,,47985.0,1.0,1.0,,
+"synthetic_scaleup (synthetic replication, not real data)",4,x5,159.329,,,62741.0,1.308,0.327,,
+"synthetic_scaleup (synthetic replication, not real data)",1,x10,446.469,,,44780.0,1.0,1.0,,
+"synthetic_scaleup (synthetic replication, not real data)",4,x10,255.831,,,78149.0,1.745,0.436,,
+delay_scaling_real_data,1,broadcast,227.035,219.103,233.641,37109.0,1.0,1.0,False,
+delay_scaling_real_data,2,broadcast,127.093,126.227,131.089,66290.0,1.786,0.893,False,
+delay_scaling_real_data,4,broadcast,88.561,85.762,96.194,95132.0,2.564,0.641,False,

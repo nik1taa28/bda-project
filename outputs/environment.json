@@ -1,0 +1,18 @@
+{
+  "os": "Darwin 23.3.0 (arm64)",
+  "cpu": "Apple M3",
+  "logical_cores": 8,
+  "physical_cores": 8,
+  "performance_cores": 4,
+  "efficiency_cores": 4,
+  "ram_gb": 16.0,
+  "python": "3.11.13",
+  "java": "openjdk version \"17.0.21\" 2026-10-20",
+  "pyspark": "3.5.3",
+  "benchmark_cores": [
+    1,
+    2,
+    4
+  ],
+  "warnings": []
+}

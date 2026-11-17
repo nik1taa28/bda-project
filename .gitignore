@@ -1,0 +1,19 @@
+.venv/
+data/raw/
+data/interim/
+outputs/_tmp/
+__pycache__/
+*.pyc
+.pytest_cache/
+spark-warehouse/
+metastore_db/
+derby.log
+*.crc
+data/raw_delay/
+data/interim_delay/
+segment_bucket_stats.parquet/
+.pytest_cache/
+
+# generated Parquet tables (CSV copies are committed; re-created by the pipelines)
+outputs/tables/*.parquet
+outputs/tables/*.parquet/

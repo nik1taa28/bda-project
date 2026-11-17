@@ -1,0 +1,10 @@
+{
+  "arr_filled_from_dep": 0,
+  "dep_filled_from_arr": 0,
+  "rows_time_ge_24h": 2517,
+  "service_day": "weekday",
+  "calendar_services_total": 61,
+  "calendar_services_selected": 4,
+  "calendar_dates_present": false,
+  "pipeline_seconds_with_counting": 48.8
+}

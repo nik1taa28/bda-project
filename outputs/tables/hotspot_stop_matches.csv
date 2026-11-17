@@ -1,0 +1,12 @@
+pattern,n_stop_ids,n_distinct_names,matched_names,status
+Silk Board,7,1,Central Silk Board,matched
+Tin Factory,2,1,Tin Factory,matched
+Hebbal,12,3,Canara Bank Hebbala | Hebbala | Kempapura Hebbala (ORR),matched
+Outer Ring Road,2,1,Nandhini Layout (Outer Ring Road),matched
+ORR,4,3,CS-PES College ORR | Kempapura Hebbala (ORR) | Suncity Apartment ORR Road,matched
+Marathahalli,12,5,Kalamandira Marathahalli Bridge | Marathahalli | Marathahalli Bridge | Marathahalli Multiplex | Marathahalli Police Station,matched
+KR Puram,0,0,,no match in data
+Electronic City,24,12,Avalahalli Electronic City | Basapura Electronic City | Concord Apartment Electronic City | Electronic City | Electronic City East Phase-II | Electronic City KIA | Electronic City Toll | Electronic City Wipro Main Gate | Gollahalli Electronic City | Huskur Electronic City | NICE Toll Electronic City | PESCE College Electronic City,matched
+Majestic,3,1,Kempegowda Bus Station(Majestic/KBS),matched
+Whitefield,0,0,,no match in data
+Kadubeesanahalli,0,0,,no match in data

@@ -1,0 +1,10 @@
+{
+  "sample_routes": 40,
+  "sample_trips": 432,
+  "sample_stop_visits": 13582,
+  "passed": true,
+  "hops_compared": 13148,
+  "max_abs_speed_diff_kmh": 7.105427357601002e-15,
+  "segment_groups_compared": 3375,
+  "max_abs_diff_mean_std_sec": 1.4210854715202004e-14
+}

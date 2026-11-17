@@ -1,0 +1,82 @@
+{
+  "row_counts": {
+    "routes": 5063,
+    "trips": 69642,
+    "stop_times": 2238693,
+    "stops": 10128,
+    "calendar": 61
+  },
+  "stop_times": {
+    "n": 2238693,
+    "arr_eq_dep": 2238693,
+    "timepoint0": 7806,
+    "blank_time": 0,
+    "hour_ge_24": 2517,
+    "trips_with_stop_times": 69642,
+    "stops_used": 9936,
+    "pct_arrival_equals_departure": 100.0,
+    "pct_timepoint_0": 0.3487
+  },
+  "route_name_prefix_counts": {
+    "(none)": 4128,
+    "MF": 129,
+    "V": 85,
+    "G": 51,
+    "KBS": 41,
+    "BC": 27,
+    "KIA": 23,
+    "NICE": 22,
+    "CHAKRA": 22,
+    "HAEA": 21,
+    "HSS": 20,
+    "SBS": 19
+  },
+  "mf_routes": 129,
+  "mf_examples": [
+    "MF-10",
+    "MF-10 D24G-KDG",
+    "MF-10A",
+    "MF-10B",
+    "MF-10B D24G-BDH",
+    "MF-11"
+  ],
+  "route_desc_counts": {
+    "Mobile ticketing; Ordinary": 3909,
+    "Ordinary": 967,
+    "Mobile ticketing; Vajra": 80,
+    "Mobile ticketing; Ordinary; Ordinary Express": 38,
+    "Mobile ticketing; Vayu Vajra": 27,
+    "Mobile ticketing; Ordinary Express": 10
+  },
+  "interpolation_profile": {
+    "valid_hops": 1935039,
+    "pct_hops_within_1pct_of_trip_median_speed": 47.08,
+    "pct_hops_within_5pct_of_trip_median_speed": 78.85,
+    "pct_hops_within_20pct_of_trip_median_speed": 93.79,
+    "mean_hop_speed_kmh": 20.794,
+    "std_hop_speed_kmh": 2.373,
+    "speed_quantiles_p05_p25_p50_p75_p95": [
+      16.4,
+      20.85,
+      21.57,
+      21.72,
+      21.99
+    ]
+  },
+  "haversine_vs_shape_dist": {
+    "hops_compared": 1932622,
+    "haversine_over_shape_dist_p10_p50_p90": [
+      0.774,
+      0.977,
+      0.999
+    ],
+    "shape_dist_based_speed_kmh_p05_p25_p50_p75_p95": [
+      21.33,
+      21.69,
+      21.88,
+      22.23,
+      27.84
+    ],
+    "note": "shape_dist_traveled has negative/large jumps in places, so it is only used for this check; pipeline distance is haversine (T10)."
+  }
+}

@@ -170,13 +170,6 @@ The BMTC timetable is scraped and appears interpolated, so little real variabili
 
 [`outputs/RESULTS.md`](outputs/RESULTS.md) full results and limitations, [`DATA_CARD.md`](DATA_CARD.md), [`DATA_CARD_DELAY.md`](DATA_CARD_DELAY.md), [`docs/PROPOSAL_UPDATES.md`](docs/PROPOSAL_UPDATES.md).
 
-## Team
-
-| Member | Responsibility |
-|---|---|
-| **Nikitaa Dhinakaran** (1MS24CS113) | Dataset preprocessing, cleaning and schema transformation; visualisation output |
-| **Pranavi Manjunath** (1MS24CS229) | PySpark pipeline engineering and aggregations; performance benchmark testing |
-
 ## Acknowledgements and data attribution
 
 Contains BMTC timetable data compiled by [Vonter](https://github.com/Vonter/bmtc-gtfs) from the Namma BMTC 2.0 app, used under the ODbL; the data is unofficial and may be inaccurate. Boston bus data: Massachusetts Bay Transportation Authority via the MBTA Open Data Portal (CC0); the agency is not liable for errors in the data.

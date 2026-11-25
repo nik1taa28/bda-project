@@ -11,9 +11,15 @@ derby.log
 *.crc
 data/raw_delay/
 data/interim_delay/
-segment_bucket_stats.parquet/
 .pytest_cache/
 
 # generated Parquet tables (CSV copies are committed; re-created by the pipelines)
 outputs/tables/*.parquet
 outputs/tables/*.parquet/
+
+# web dashboard
+webapp/node_modules/
+webapp/dist/
+
+.DS_Store
+outputs/_old/

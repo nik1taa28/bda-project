@@ -1,0 +1,45 @@
+model,task,feature,importance
+GBT (full features),regression,route,0.1312869339753006
+GBT (full features),regression,direction,0.0056529533093534964
+GBT (full features),regression,point type,0.035340772965919254
+GBT (full features),regression,hour of day,0.016648499664996676
+GBT (full features),regression,day of week,0.006149731515439903
+GBT (full features),regression,month,0.0056740404639032006
+GBT (full features),regression,timepoint order,0.03530160267673765
+GBT (full features),regression,route avg delay (train),0.000174212925609024
+GBT (full features),regression,route late rate (train),0.00022046367682970996
+GBT (full features),regression,route+timepoint avg delay (train),0.03742237486930472
+GBT (full features),regression,previous-timepoint delay,0.7042098400282099
+GBT (full features),regression,has previous timepoint,0.021918573928395926
+GBT (full features),classification,route,0.1138054622393969
+GBT (full features),classification,direction,0.0019861837826305063
+GBT (full features),classification,point type,0.025688545235068718
+GBT (full features),classification,hour of day,0.012697209522099004
+GBT (full features),classification,day of week,0.004061801803974181
+GBT (full features),classification,month,0.0051232138629117505
+GBT (full features),classification,timepoint order,0.048875593286282944
+GBT (full features),classification,route avg delay (train),6.7548689477718296e-06
+GBT (full features),classification,route late rate (train),0.0
+GBT (full features),classification,route+timepoint avg delay (train),0.02396469047410758
+GBT (full features),classification,previous-timepoint delay,0.7299026321799288
+GBT (full features),classification,has previous timepoint,0.033887912744651735
+GBT without previous delay,regression,route,0.5001983815177343
+GBT without previous delay,regression,direction,0.01376171019497027
+GBT without previous delay,regression,point type,0.0022294688986958535
+GBT without previous delay,regression,hour of day,0.16505078791821037
+GBT without previous delay,regression,day of week,0.056237276605970374
+GBT without previous delay,regression,month,0.1518388904822765
+GBT without previous delay,regression,timepoint order,0.039299175463646176
+GBT without previous delay,regression,route avg delay (train),0.0001709196481779388
+GBT without previous delay,regression,route late rate (train),2.574202309990132e-05
+GBT without previous delay,regression,route+timepoint avg delay (train),0.07118764724721839
+GBT without previous delay,classification,route,0.5001658704896564
+GBT without previous delay,classification,direction,0.03621168587160028
+GBT without previous delay,classification,point type,0.005484174972862744
+GBT without previous delay,classification,hour of day,0.17276228798503504
+GBT without previous delay,classification,day of week,0.05762663733102294
+GBT without previous delay,classification,month,0.09720284594846927
+GBT without previous delay,classification,timepoint order,0.067825972103602
+GBT without previous delay,classification,route avg delay (train),0.00030427065338344103
+GBT without previous delay,classification,route late rate (train),6.578662902938608e-05
+GBT without previous delay,classification,route+timepoint avg delay (train),0.06235046801533853

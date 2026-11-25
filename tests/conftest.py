@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 @pytest.fixture(scope="session")
 def spark():
     from src import ingest
-    s = ingest.get_spark(2, 4, "2g", app="bmtc-tests")
+    s = ingest.get_spark(2, 4, "2g", app="tests")
     yield s
     s.stop()
 

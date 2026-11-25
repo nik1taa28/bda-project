@@ -1,0 +1,9 @@
+task,model,rmse_min,mae_min,r2,accuracy,precision,recall,f1,auc
+"regression (delay, minutes)",baseline: train mean,6.477106708747624,4.427317481640146,-0.0018371040719415976,,,,,
+"regression (delay, minutes)",baseline: previous delay carried forward,3.32656211956036,2.054712142424922,0.7357431317732457,,,,,
+"regression (delay, minutes)",GBT without previous delay,5.797661675559904,3.8919823510694918,0.19732313663323764,,,,,
+"regression (delay, minutes)",GBT (full features),2.9208174660227044,1.6426632092093292,0.7962752272168176,,,,,
+classification (late > 5 min),baseline: never late,,,,0.6461609205898323,0.0,0.0,0.0,
+classification (late > 5 min),baseline: previous delay carried forward,,,,0.8749900123765,0.8790847819333576,0.7498421622618032,0.8093362763080175,0.9212081690299548
+classification (late > 5 min),GBT without previous delay,,,,0.7042000198937154,0.656823609238551,0.34349639392612735,0.45108873261598426,0.7335925671535407
+classification (late > 5 min),GBT (full features),,,,0.8942942541405834,0.9144650113850545,0.7736215120164059,0.8381677064375925,0.9458954678297641

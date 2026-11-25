@@ -8,7 +8,7 @@ import pytest
 from pyspark.sql import functions as F
 
 from src import delay_pipeline as dp
-from src.clean import Waterfall
+from src.waterfall import Waterfall
 
 ROOT = Path(__file__).resolve().parent.parent
 

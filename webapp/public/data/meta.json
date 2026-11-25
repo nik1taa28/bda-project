@@ -1,0 +1,18 @@
+{
+  "exported_on": "2026-11-22",
+  "boston": {
+    "title": "MBTA Bus Arrival Departure Times 2024",
+    "licence": "CC0",
+    "months": [
+      1,
+      4,
+      7,
+      10
+    ]
+  },
+  "files": {
+    "boston": "boston.json",
+    "model": "model.json",
+    "pipeline": "pipeline.json"
+  }
+}

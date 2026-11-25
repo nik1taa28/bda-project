@@ -1,0 +1,142 @@
+{
+  "split": {
+    "train": {
+      "rows": 3379953,
+      "first_date": "2024-01-01",
+      "last_date": "2024-10-23",
+      "days": 91,
+      "late_rate": 0.3356650225609646,
+      "mean_delay_min": 4.239681444288328
+    },
+    "test": {
+      "rows": 1226518,
+      "first_date": "2024-01-24",
+      "last_date": "2024-10-31",
+      "days": 32,
+      "late_rate": 0.3538390794101676,
+      "mean_delay_min": 4.517044986973963
+    }
+  },
+  "train_rows_used": 1001114,
+  "train_cap": 1000000,
+  "test_rows": 1226518,
+  "n_routes": 152,
+  "test_fraction": 0.25,
+  "late_threshold_sec": 300,
+  "gbt": {
+    "gbt_max_iter": 40,
+    "gbt_max_depth": 5,
+    "seed": 42
+  },
+  "max_bins": 256,
+  "regression": {
+    "baseline: train mean": {
+      "rmse_min": 6.477106708747624,
+      "mae_min": 4.427317481640146,
+      "r2": -0.0018371040719415976
+    },
+    "baseline: previous delay carried forward": {
+      "rmse_min": 3.32656211956036,
+      "mae_min": 2.054712142424922,
+      "r2": 0.7357431317732457
+    },
+    "GBT without previous delay": {
+      "rmse_min": 5.797661675559904,
+      "mae_min": 3.8919823510694918,
+      "r2": 0.19732313663323764
+    },
+    "GBT (full features)": {
+      "rmse_min": 2.9208174660227044,
+      "mae_min": 1.6426632092093292,
+      "r2": 0.7962752272168176
+    }
+  },
+  "classification": {
+    "baseline: never late": {
+      "accuracy": 0.6461609205898323,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 433990,
+      "tn": 792528,
+      "auc": null
+    },
+    "baseline: previous delay carried forward": {
+      "accuracy": 0.8749900123765,
+      "precision": 0.8790847819333576,
+      "recall": 0.7498421622618032,
+      "f1": 0.8093362763080175,
+      "tp": 325424,
+      "fp": 44761,
+      "fn": 108566,
+      "tn": 747767,
+      "auc": 0.9212081690299548
+    },
+    "GBT without previous delay": {
+      "accuracy": 0.7042000198937154,
+      "precision": 0.656823609238551,
+      "recall": 0.34349639392612735,
+      "f1": 0.45108873261598426,
+      "tp": 149074,
+      "fp": 77888,
+      "fn": 284916,
+      "tn": 714640,
+      "auc": 0.7335925671535407
+    },
+    "GBT (full features)": {
+      "accuracy": 0.8942942541405834,
+      "precision": 0.9144650113850545,
+      "recall": 0.7736215120164059,
+      "f1": 0.8381677064375925,
+      "tp": 335744,
+      "fp": 31404,
+      "fn": 98246,
+      "tn": 761124,
+      "auc": 0.9458954678297641
+    }
+  },
+  "fits": {
+    "reg_full": {
+      "fit_seconds": 30.5
+    },
+    "clf_full": {
+      "fit_seconds": 36.3
+    },
+    "reg_noprev": {
+      "fit_seconds": 29.7
+    },
+    "clf_noprev": {
+      "fit_seconds": 32.3
+    }
+  },
+  "features_full": [
+    "route_id_idx",
+    "direction_id_idx",
+    "point_type_idx",
+    "hour_of_day",
+    "day_of_week",
+    "month",
+    "time_point_order",
+    "route_hist_mean_delay_min",
+    "route_hist_late_rate",
+    "rtp_hist_mean_delay_min",
+    "prev_delay_min",
+    "has_prev"
+  ],
+  "features_without_previous_delay": [
+    "route_id_idx",
+    "direction_id_idx",
+    "point_type_idx",
+    "hour_of_day",
+    "day_of_week",
+    "month",
+    "time_point_order",
+    "route_hist_mean_delay_min",
+    "route_hist_late_rate",
+    "rtp_hist_mean_delay_min"
+  ],
+  "prepare_seconds": 14.7,
+  "total_seconds": 162.1
+}

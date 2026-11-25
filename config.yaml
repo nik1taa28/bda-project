@@ -1,62 +1,22 @@
-# All thresholds and choices for the BMTC GTFS scheduled-travel-time project.
+# All thresholds and choices for the Boston MBTA bus delay analysis and delay prediction project.
 paths:
-  raw_dir: data/raw/gtfs          # unzipped GTFS .txt files
-  interim_dir: data/interim       # parquet between pipeline stages (git-ignored)
   tables_dir: outputs/tables
   figures_dir: outputs/figures
   outputs_dir: outputs
 
-# T6: which day type to analyse. Override on the CLI with --service-day weekday|weekend.
-# weekday = every service_id that runs on ALL of Mon..Fri (calendar.txt);
-# weekend = every service_id that runs on BOTH Sat and Sun.
-# "days:1111111" (every day) therefore belongs to both sets.
-service_day: weekday
-
-time_buckets:                      # hour-of-day (0-23, after % 24), start inclusive, end exclusive
+time_buckets:                      # hour-of-day (0-23), start inclusive, end exclusive
   AM_PEAK: [7, 10]
   PM_PEAK: [17, 20]                # everything else is OFF_PEAK
 
-thresholds:
-  max_speed_kmh: 80                # T8: drop hops faster than this
-  min_hop_dist_m: 50               # T8: drop hops shorter than this (straight-line)
-  min_trips: 10                    # T11: min trips per segment/period before ranking
-  min_headways: 5                  # min headway gaps per route/stop/hour before reporting CV
-  min_trips_hourly: 5              # min trips per segment-hour for the hourly variability profile
-
-route_class:                       # T13 (heuristic, see DATA_CARD.md)
-  feeder_prefixes: ["MF-"]         # verified in routes.txt: 'MF-' routes = metro feeder
-  trunk_min_km: 30                 # non-feeder routes at least this long (median trip km) = trunk
-
-# T12: case-insensitive substring patterns matched against stop_name.
-hotspot_patterns:
-  - Silk Board
-  - Tin Factory
-  - Hebbal
-  - Outer Ring Road
-  - ORR
-  - Marathahalli
-  - KR Puram
-  - Electronic City
-  - Majestic
-  - Whitefield
-  - Kadubeesanahalli
-
 spark:
-  shuffle_partitions: 8            # fixed for every run (T17)
+  shuffle_partitions: 8            # fixed for every run
   driver_memory: 4g
-  adaptive_enabled: false          # off so the join strategy is not changed at run time (T19)
+  adaptive_enabled: false          # off so the join strategy is not changed at run time
 
 benchmark:
   cores: [1, 2, 4]
-  timed_runs: 5
-  warmup_runs: 1
-  synthetic_factors: [1, 5, 10]
-  synthetic_cores: [1, 4]         # the scale-up test is heavy (x10 = ~20M rows), so only 1 and 4 cores
-  synthetic_timed_runs: 1         # single timed run per point, no discarded warm-up (disclosed in RESULTS.md)
-  synthetic_warmup_runs: 0
-  synthetic_driver_memory: 8g     # x10 needs more heap; used for ALL synthetic runs
 
-# ---- Real scheduled-vs-actual delay analysis (Boston MBTA bus, NOT Bengaluru) ----
+# ---- Scheduled-vs-actual delay analysis (Boston MBTA bus, 2024) ----
 delay:
   raw_dir: data/raw_delay/extracted/MBTA_Bus_Arrival_Departure_Times_2024
   file_pattern: "MBTA-Bus-Arrival-Departure-Times_2024-{month:02d}.csv"
@@ -68,6 +28,17 @@ delay:
   min_events: 100                  # min observations per route/segment before ranking
   headway_bunch_ratio: 0.5         # bunched = actual headway < 0.5 x scheduled
   headway_gap_ratio: 1.5           # gap = actual headway > 1.5 x scheduled
-  bench_timed_runs: 3              # benchmark runs per core count (each run ~ minutes), after 1 warm-up
-  bench_warmup_runs: 1
+  bench_timed_runs: 1              # quick protocol: ONE timed run per core count, no warm-up (disclosed in the results)
+  bench_warmup_runs: 0
   bench_driver_memory: 6g
+
+# ---- Delay prediction (Spark MLlib gradient-boosted trees) ----
+delay_model:
+  test_fraction: 0.25              # last 25% of the days of EVERY month are held out for testing (temporal split)
+  max_train_rows: 1000000          # training sample cap so local-mode training stays in minutes (disclosed in results)
+  gbt_max_iter: 40                 # boosting rounds
+  gbt_max_depth: 5
+  max_bins: 256                    # must be >= number of route categories (raised automatically if needed)
+  seed: 42
+  bench_timed_runs: 1              # quick protocol: ONE timed run per core count, no warm-up (disclosed in the results)
+  bench_warmup_runs: 0

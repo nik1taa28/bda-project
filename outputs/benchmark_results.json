@@ -17,579 +17,349 @@
     ],
     "warnings": []
   },
+  "dataset": "Boston MBTA bus arrival/departure times 2024 (real scheduled vs actual times)",
   "config": {
     "shuffle_partitions": 8,
     "adaptive": false,
-    "driver_memory": "4g",
-    "service_day": "weekday",
-    "timed_runs": 5,
-    "warmup_runs": 1
+    "driver_memory": "6g",
+    "timed_runs": 1,
+    "warmup_runs": 0,
+    "months": [
+      1,
+      4,
+      7,
+      10
+    ]
   },
   "baseline": "single-node Spark local[1]",
-  "cleaned_stop_times_rows": 1999285,
+  "cleaned_event_rows": 8424946,
   "scaling": {
     "1": {
       "oversubscribed": false,
       "stages_seconds": {
         "clean": {
-          "median": 10.107,
-          "min": 10.058,
-          "max": 10.323,
+          "median": 167.567,
+          "min": 167.567,
+          "max": 167.567,
           "runs": [
-            10.208,
-            10.323,
-            10.058,
-            10.107,
-            10.075
-          ]
-        },
-        "join": {
-          "median": 3.145,
-          "min": 3.029,
-          "max": 3.311,
-          "runs": [
-            3.311,
-            3.145,
-            3.153,
-            3.122,
-            3.029
+            167.567
           ]
         },
         "window_agg": {
-          "median": 38.509,
-          "min": 38.295,
-          "max": 39.339,
+          "median": 50.135,
+          "min": 50.135,
+          "max": 50.135,
           "runs": [
-            39.339,
-            38.509,
-            38.33,
-            39.06,
-            38.295
+            50.135
           ]
         },
         "total": {
-          "median": 51.976,
-          "min": 51.398,
-          "max": 52.858,
+          "median": 217.702,
+          "min": 217.702,
+          "max": 217.702,
           "runs": [
-            52.858,
-            51.976,
-            51.541,
-            52.289,
-            51.398
+            217.702
           ]
         }
       },
-      "total_latency_s_median": 51.976,
-      "throughput_rows_per_s": 38466,
+      "total_latency_s_median": 217.702,
       "speedup_total": 1.0,
       "efficiency_total": 1.0,
       "speedup_by_stage": {
         "clean": 1.0,
-        "join": 1.0,
         "window_agg": 1.0
-      }
+      },
+      "throughput_rows_per_s": 38699
     },
     "2": {
       "oversubscribed": false,
       "stages_seconds": {
         "clean": {
-          "median": 6.849,
-          "min": 6.504,
-          "max": 7.142,
+          "median": 84.471,
+          "min": 84.471,
+          "max": 84.471,
           "runs": [
-            7.142,
-            7.002,
-            6.849,
-            6.677,
-            6.504
-          ]
-        },
-        "join": {
-          "median": 2.332,
-          "min": 1.974,
-          "max": 2.589,
-          "runs": [
-            2.589,
-            2.387,
-            2.332,
-            2.305,
-            1.974
+            84.471
           ]
         },
         "window_agg": {
-          "median": 29.769,
-          "min": 29.474,
-          "max": 31.212,
+          "median": 29.789,
+          "min": 29.789,
+          "max": 29.789,
           "runs": [
-            31.212,
-            29.769,
-            29.638,
-            30.759,
-            29.474
+            29.789
           ]
         },
         "total": {
-          "median": 39.158,
-          "min": 37.952,
-          "max": 40.943,
+          "median": 114.26,
+          "min": 114.26,
+          "max": 114.26,
           "runs": [
-            40.943,
-            39.158,
-            38.818,
-            39.741,
-            37.952
+            114.26
           ]
         }
       },
-      "total_latency_s_median": 39.158,
-      "throughput_rows_per_s": 51057,
-      "speedup_total": 1.327,
-      "efficiency_total": 0.664,
+      "total_latency_s_median": 114.26,
+      "speedup_total": 1.905,
+      "efficiency_total": 0.953,
       "speedup_by_stage": {
-        "clean": 1.476,
-        "join": 1.349,
-        "window_agg": 1.294
-      }
+        "clean": 1.984,
+        "window_agg": 1.683
+      },
+      "throughput_rows_per_s": 73735
     },
     "4": {
       "oversubscribed": false,
       "stages_seconds": {
         "clean": {
-          "median": 3.795,
-          "min": 3.642,
-          "max": 4.074,
+          "median": 53.547,
+          "min": 53.547,
+          "max": 53.547,
           "runs": [
-            3.867,
-            3.642,
-            3.795,
-            3.76,
-            4.074
-          ]
-        },
-        "join": {
-          "median": 1.531,
-          "min": 1.522,
-          "max": 1.883,
-          "runs": [
-            1.527,
-            1.522,
-            1.576,
-            1.531,
-            1.883
+            53.547
           ]
         },
         "window_agg": {
-          "median": 21.166,
-          "min": 19.187,
-          "max": 25.028,
+          "median": 24.309,
+          "min": 24.309,
+          "max": 24.309,
           "runs": [
-            19.727,
-            19.187,
-            21.166,
-            22.235,
-            25.028
+            24.309
           ]
         },
         "total": {
-          "median": 26.536,
-          "min": 24.351,
-          "max": 30.985,
+          "median": 77.856,
+          "min": 77.856,
+          "max": 77.856,
           "runs": [
-            25.122,
-            24.351,
-            26.536,
-            27.526,
-            30.985
+            77.856
           ]
         }
       },
-      "total_latency_s_median": 26.536,
-      "throughput_rows_per_s": 75342,
-      "speedup_total": 1.959,
-      "efficiency_total": 0.49,
+      "total_latency_s_median": 77.856,
+      "speedup_total": 2.796,
+      "efficiency_total": 0.699,
       "speedup_by_stage": {
-        "clean": 2.663,
-        "join": 2.054,
-        "window_agg": 1.819
-      }
+        "clean": 3.129,
+        "window_agg": 2.062
+      },
+      "throughput_rows_per_s": 108212
     }
   },
   "join_comparison": {
     "cores": 4,
-    "note": "broadcast = F.broadcast hint on dimension tables; shuffle = no hint and autoBroadcastJoinThreshold=-1 (sort-merge); AQE off",
+    "what": "joining the train-only route / route+timepoint history tables onto the test events",
+    "note": "broadcast = F.broadcast hint on the small tables; shuffle = no hint and autoBroadcastJoinThreshold=-1 (sort-merge join); AQE off",
     "variants": {
       "broadcast": {
         "worker": "join",
         "variant": "broadcast",
         "cores": 4,
-        "factor": 1,
         "shuffle_partitions": 8,
         "adaptive": false,
         "auto_broadcast_threshold": "10485760b",
-        "warmup_runs": 1,
-        "timed_runs": 5,
+        "warmup_runs": 0,
+        "timed_runs": 1,
+        "months": [
+          1,
+          4,
+          7,
+          10
+        ],
         "join_seconds": {
-          "median": 1.854,
-          "min": 1.507,
-          "max": 1.98,
+          "median": 1.726,
+          "min": 1.726,
+          "max": 1.726,
           "runs": [
-            1.98,
-            1.507,
-            1.854,
-            1.893,
-            1.715
+            1.726
           ]
         },
         "_run_ids": [
-          "run1",
-          "run2",
-          "run3",
-          "run4",
-          "run5"
+          "run0"
         ],
-        "cleaned_rows": 1999285,
-        "shuffle_write_bytes_per_run_median": 2633151,
-        "shuffle_read_bytes_per_run_median": 2633151,
+        "rows_joined": 1226518,
+        "shuffle_write_bytes_per_run_median": 147185,
+        "shuffle_read_bytes_per_run_median": 147185,
         "plan_file": "outputs/explain_join_broadcast.txt"
       },
       "shuffle": {
         "worker": "join",
         "variant": "shuffle",
         "cores": 4,
-        "factor": 1,
         "shuffle_partitions": 8,
         "adaptive": false,
         "auto_broadcast_threshold": "-1",
-        "warmup_runs": 1,
-        "timed_runs": 5,
+        "warmup_runs": 0,
+        "timed_runs": 1,
+        "months": [
+          1,
+          4,
+          7,
+          10
+        ],
         "join_seconds": {
-          "median": 2.728,
-          "min": 2.59,
-          "max": 2.883,
+          "median": 2.936,
+          "min": 2.936,
+          "max": 2.936,
           "runs": [
-            2.883,
-            2.769,
-            2.693,
-            2.728,
-            2.59
+            2.936
           ]
         },
         "_run_ids": [
-          "run1",
-          "run2",
-          "run3",
-          "run4",
-          "run5"
+          "run0"
         ],
-        "cleaned_rows": 1999285,
-        "shuffle_write_bytes_per_run_median": 219268237,
-        "shuffle_read_bytes_per_run_median": 219268237,
+        "rows_joined": 1226518,
+        "shuffle_write_bytes_per_run_median": 134376215,
+        "shuffle_read_bytes_per_run_median": 134376215,
         "plan_file": "outputs/explain_join_shuffle.txt"
       }
     }
   },
-  "synthetic_scaleup": {
-    "label": "synthetic replication, not real data",
-    "results": [
-      {
-        "worker": "synthetic",
-        "variant": "broadcast",
-        "cores": 1,
-        "factor": 1,
-        "shuffle_partitions": 8,
-        "adaptive": false,
-        "auto_broadcast_threshold": "10485760b",
-        "warmup_runs": 0,
-        "timed_runs": 1,
-        "synthetic_rows": 1999285,
-        "window_agg_seconds": {
-          "median": 42.708,
-          "min": 42.708,
-          "max": 42.708,
-          "runs": [
-            42.708
-          ]
-        },
-        "label": "synthetic replication, not real data"
-      },
-      {
-        "worker": "synthetic",
-        "variant": "broadcast",
-        "cores": 4,
-        "factor": 1,
-        "shuffle_partitions": 8,
-        "adaptive": false,
-        "auto_broadcast_threshold": "10485760b",
-        "warmup_runs": 0,
-        "timed_runs": 1,
-        "synthetic_rows": 1999285,
-        "window_agg_seconds": {
-          "median": 34.377,
-          "min": 34.377,
-          "max": 34.377,
-          "runs": [
-            34.377
-          ]
-        },
-        "label": "synthetic replication, not real data"
-      },
-      {
-        "worker": "synthetic",
-        "variant": "broadcast",
-        "cores": 1,
-        "factor": 5,
-        "shuffle_partitions": 8,
-        "adaptive": false,
-        "auto_broadcast_threshold": "10485760b",
-        "warmup_runs": 0,
-        "timed_runs": 1,
-        "synthetic_rows": 9996425,
-        "window_agg_seconds": {
-          "median": 208.323,
-          "min": 208.323,
-          "max": 208.323,
-          "runs": [
-            208.323
-          ]
-        },
-        "label": "synthetic replication, not real data"
-      },
-      {
-        "worker": "synthetic",
-        "variant": "broadcast",
-        "cores": 4,
-        "factor": 5,
-        "shuffle_partitions": 8,
-        "adaptive": false,
-        "auto_broadcast_threshold": "10485760b",
-        "warmup_runs": 0,
-        "timed_runs": 1,
-        "synthetic_rows": 9996425,
-        "window_agg_seconds": {
-          "median": 159.329,
-          "min": 159.329,
-          "max": 159.329,
-          "runs": [
-            159.329
-          ]
-        },
-        "label": "synthetic replication, not real data"
-      },
-      {
-        "worker": "synthetic",
-        "variant": "broadcast",
-        "cores": 1,
-        "factor": 10,
-        "shuffle_partitions": 8,
-        "adaptive": false,
-        "auto_broadcast_threshold": "10485760b",
-        "warmup_runs": 0,
-        "timed_runs": 1,
-        "synthetic_rows": 19992850,
-        "window_agg_seconds": {
-          "median": 446.469,
-          "min": 446.469,
-          "max": 446.469,
-          "runs": [
-            446.469
-          ]
-        },
-        "label": "synthetic replication, not real data"
-      },
-      {
-        "worker": "synthetic",
-        "variant": "broadcast",
-        "cores": 4,
-        "factor": 10,
-        "shuffle_partitions": 8,
-        "adaptive": false,
-        "auto_broadcast_threshold": "10485760b",
-        "warmup_runs": 0,
-        "timed_runs": 1,
-        "synthetic_rows": 19992850,
-        "window_agg_seconds": {
-          "median": 255.831,
-          "min": 255.831,
-          "max": 255.831,
-          "runs": [
-            255.831
-          ]
-        },
-        "label": "synthetic replication, not real data"
-      }
-    ],
-    "config": {
-      "cores": [
-        1,
-        4
-      ],
-      "factors": [
-        1,
-        5,
-        10
-      ],
-      "timed_runs": 1,
-      "warmup_runs": 0,
-      "driver_memory": "8g",
-      "stage_timed": "window + aggregation only"
-    }
-  },
-  "data_completeness": {
-    "raw_stop_times_rows": 2238693,
-    "final_analysed_hops": 1935039,
-    "ratio_final_over_raw": 0.8644
-  },
-  "aggregation_correctness": {
-    "sample_routes": 40,
-    "sample_trips": 432,
-    "sample_stop_visits": 13582,
-    "passed": true,
-    "hops_compared": 13148,
-    "max_abs_speed_diff_kmh": 7.105427357601002e-15,
-    "segment_groups_compared": 3375,
-    "max_abs_diff_mean_std_sec": 1.4210854715202004e-14
-  },
-  "delay_benchmark": {
-    "dataset": "Boston MBTA bus arrival/departure times 2024 (real scheduled-vs-actual data, NOT Bengaluru)",
-    "months": [
-      1,
-      4,
-      7,
-      10
-    ],
-    "cleaned_rows": 8424946,
-    "timed_runs": 3,
-    "warmup_runs": 1,
-    "driver_memory": "6g",
+  "model_scaling": {
+    "what": "feature preparation + training of the GBT regressor and classifier",
+    "timed_runs": 1,
+    "warmup_runs": 0,
+    "train_rows_used": 1001114,
+    "test_rows": 1226518,
+    "gbt": {
+      "gbt_max_iter": 40,
+      "gbt_max_depth": 5,
+      "max_train_rows": 1000000
+    },
     "scaling": {
       "1": {
         "oversubscribed": false,
         "stages_seconds": {
-          "clean": {
-            "median": 170.315,
-            "min": 169.061,
-            "max": 181.867,
+          "features": {
+            "median": 25.878,
+            "min": 25.878,
+            "max": 25.878,
             "runs": [
-              169.061,
-              170.315,
-              181.867
+              25.878
             ]
           },
-          "window_agg": {
-            "median": 51.774,
-            "min": 50.042,
-            "max": 56.72,
+          "fit_regressor": {
+            "median": 48.668,
+            "min": 48.668,
+            "max": 48.668,
             "runs": [
-              50.042,
-              56.72,
-              51.774
+              48.668
+            ]
+          },
+          "fit_classifier": {
+            "median": 49.349,
+            "min": 49.349,
+            "max": 49.349,
+            "runs": [
+              49.349
             ]
           },
           "total": {
-            "median": 227.035,
-            "min": 219.103,
-            "max": 233.641,
+            "median": 123.895,
+            "min": 123.895,
+            "max": 123.895,
             "runs": [
-              219.103,
-              227.035,
-              233.641
+              123.895
             ]
           }
         },
-        "total_latency_s_median": 227.035,
-        "throughput_rows_per_s": 37109,
+        "total_latency_s_median": 123.895,
         "speedup_total": 1.0,
         "efficiency_total": 1.0,
         "speedup_by_stage": {
-          "clean": 1.0,
-          "window_agg": 1.0
+          "features": 1.0,
+          "fit_regressor": 1.0,
+          "fit_classifier": 1.0
         }
       },
       "2": {
         "oversubscribed": false,
         "stages_seconds": {
-          "clean": {
-            "median": 95.084,
-            "min": 94.024,
-            "max": 100.361,
+          "features": {
+            "median": 17.285,
+            "min": 17.285,
+            "max": 17.285,
             "runs": [
-              94.024,
-              100.361,
-              95.084
+              17.285
             ]
           },
-          "window_agg": {
-            "median": 32.009,
-            "min": 30.728,
-            "max": 32.203,
+          "fit_regressor": {
+            "median": 29.412,
+            "min": 29.412,
+            "max": 29.412,
             "runs": [
-              32.203,
-              30.728,
-              32.009
+              29.412
+            ]
+          },
+          "fit_classifier": {
+            "median": 29.012,
+            "min": 29.012,
+            "max": 29.012,
+            "runs": [
+              29.012
             ]
           },
           "total": {
-            "median": 127.093,
-            "min": 126.227,
-            "max": 131.089,
+            "median": 75.71,
+            "min": 75.71,
+            "max": 75.71,
             "runs": [
-              126.227,
-              131.089,
-              127.093
+              75.71
             ]
           }
         },
-        "total_latency_s_median": 127.093,
-        "throughput_rows_per_s": 66290,
-        "speedup_total": 1.786,
-        "efficiency_total": 0.893,
+        "total_latency_s_median": 75.71,
+        "speedup_total": 1.636,
+        "efficiency_total": 0.818,
         "speedup_by_stage": {
-          "clean": 1.791,
-          "window_agg": 1.617
+          "features": 1.497,
+          "fit_regressor": 1.655,
+          "fit_classifier": 1.701
         }
       },
       "4": {
         "oversubscribed": false,
         "stages_seconds": {
-          "clean": {
-            "median": 64.199,
-            "min": 61.908,
-            "max": 64.914,
+          "features": {
+            "median": 14.101,
+            "min": 14.101,
+            "max": 14.101,
             "runs": [
-              64.199,
-              64.914,
-              61.908
+              14.101
             ]
           },
-          "window_agg": {
-            "median": 23.855,
-            "min": 23.646,
-            "max": 31.995,
+          "fit_regressor": {
+            "median": 19.976,
+            "min": 19.976,
+            "max": 19.976,
             "runs": [
-              31.995,
-              23.646,
-              23.855
+              19.976
+            ]
+          },
+          "fit_classifier": {
+            "median": 18.723,
+            "min": 18.723,
+            "max": 18.723,
+            "runs": [
+              18.723
             ]
           },
           "total": {
-            "median": 88.561,
-            "min": 85.762,
-            "max": 96.194,
+            "median": 52.8,
+            "min": 52.8,
+            "max": 52.8,
             "runs": [
-              96.194,
-              88.561,
-              85.762
+              52.8
             ]
           }
         },
-        "total_latency_s_median": 88.561,
-        "throughput_rows_per_s": 95132,
-        "speedup_total": 2.564,
-        "efficiency_total": 0.641,
+        "total_latency_s_median": 52.8,
+        "speedup_total": 2.346,
+        "efficiency_total": 0.587,
         "speedup_by_stage": {
-          "clean": 2.653,
-          "window_agg": 2.17
+          "features": 1.835,
+          "fit_regressor": 2.436,
+          "fit_classifier": 2.636
         }
       }
     }

@@ -1,14 +1,13 @@
 """REAL scheduled-vs-actual delay analysis on the public MBTA (Boston) bus dataset.
 
-WHY: BMTC publishes only a static timetable, so BMTC delay cannot be measured. This module runs the
-same Spark approach (explicit schema, cleaning waterfall, window functions, aggregations) on a dataset
-that has BOTH the scheduled and the actual time of every bus at every timepoint.
-All results are about BOSTON, never Bengaluru.
+WHY: the public MBTA dataset has BOTH the scheduled and the actual time of every bus at every timepoint, so
+real delay (actual - scheduled) can be measured. The module uses explicit schemas, a cleaning waterfall,
+window functions and aggregations in Spark. All results are about BOSTON.
 
 Dataset quirks handled (checked on the real files):
   * `scheduled` / `actual` are time-of-day stamped 1900-01-01T..Z, so a trip after midnight wraps to 00:xx.
     delay = actual - scheduled is therefore computed modulo 24 h, mapped into [-12 h, +12 h).
-  * 6.5% of rows have no actual time (data collection gaps) -> dropped and counted.
+  * about 7.5% of rows have no actual time (data collection gaps) -> dropped and counted.
   * Only trips with standard_type = 'Schedule' are judged on schedule (the data dictionary says scheduled
     time must NOT be used for reliability on 'Headway' trips); 'Headway' trips are analysed via headways.
 CLI:  python -m src.delay_pipeline
@@ -24,8 +23,8 @@ from pyspark.sql import DataFrame, Window, functions as F
 from pyspark.sql.types import StringType, StructField, StructType
 
 from src import features, ingest
-from src.clean import Waterfall
-from src.pipeline import save_table
+from src.tables import save_table
+from src.waterfall import Waterfall
 
 COLS = ["service_date", "route_id", "direction_id", "half_trip_id", "stop_id", "time_point_id",
         "time_point_order", "point_type", "standard_type", "scheduled", "actual", "scheduled_headway", "headway"]
